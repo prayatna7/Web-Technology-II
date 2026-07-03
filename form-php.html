@@ -1,6 +1,7 @@
 <?php
 
 $Err = [];
+$name=$email=$phone=$password=$country=$gender=$address=$check="";
 $success = false;
 
 if(isset($_POST["submit"]))
@@ -9,7 +10,7 @@ if(isset($_POST["submit"]))
     {
         $Err['name'] = "Name is required";
     }
-    else if(!preg_match("/^[a-zA-Z ]{2,}$", $_POST["name"]))
+    else if(!preg_match("/^[a-zA-Z ]{2,}$/", $_POST["name"]))
     {
         $Err['name'] = "Only alphabets are allowed";
     }
@@ -74,13 +75,13 @@ if(isset($_POST["submit"]))
     {
         $country = $_POST["country"];
     }
-  if($_POST["terms"]=="")
+    if(!isset($_POST["check"]))
     {
-        $Err['terms'] = "●🔴●";
+      $Err['check']= "⚠"  ;
     }
     else
     {
-        $terms = $_POST["terms"];
+        $check = "Accepted!";
     }
 
     if(empty($Err))
@@ -100,26 +101,26 @@ if(isset($_POST["submit"]))
 <h2>Registration Form</h2>
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
 Full Name:
-<input type="text" name="name">
+<input type="text" name="name" value= "<?php echo $name;  ?>">
 <div><?php echo $Err['name'] ?? ""; ?></div>
 <br>
 Email:
-<input type="text" name="email">
+<input type="text" name="email" value= "<?php echo $email;  ?>">
 <div><?php echo $Err['email'] ?? ""; ?></div><br>
 Phone Number:
-<input type="text" name="phone">
+<input type="text" name="phone" value= "<?php echo $phone;  ?>">
 <div><?php echo $Err['phone'] ?? ""; ?></div><br>
 Password:
-<input type="password" name="password">
+<input type="password" name="password" value= "<?php echo $password;  ?>">
 <div><?php echo $Err['pass'] ?? ""; ?></div><br>
 Gender:
-<input type="radio" name="gender" value="Male">Male
-<input type="radio" name="gender" value="Female">Female
+<input type="radio" name="gender" value= "Male">Male
+<input type="radio" name="gender" value= "Female">Female
 <div><?php echo $Err['gender'] ?? ""; ?></div>
 <br>
 Country:
 
-<select name="country">
+<select name="country" value= "<?php echo $country;  ?>">
 <option value="">Select Country</option>
 <option value="Nepal">Nepal</option>
 <option value="India">India</option>
@@ -128,12 +129,13 @@ Country:
 
 <div><?php echo $Err['country'] ?? ""; ?></div><br>
 Address:
-<textarea name="address"></textarea>
+<textarea name="address"><?php echo $address;  ?></textarea>
 <div><?php echo $Err['address'] ?? ""; ?></div>
 <br>
-  <input type="checkbox" name="terms">
-  <label style="border: 1px solid black">I Accept The Terms & Conditions!</label>
-  <div><?php echo $Err['terms']?? ""; ?></div>
+<input type="checkbox" id="cb1" name="check">
+I Accept The Terms And Conditions!
+<div><?php echo $Err['check'] ?? ""; ?></div>
+
 <input type="submit" name="submit" value="Register">
 </form>
 <?php
@@ -148,7 +150,8 @@ if($success)
     echo "Gender -> ".$gender."<br>";
     echo "Country -> ".$country."<br>";
     echo "Address -> ".$address."<br>";
-}
+    echo "Terms -> ".$check."<br>";
+    }
 
 ?>
 </body>
