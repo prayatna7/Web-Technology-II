@@ -1,0 +1,264 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#88b4e6,#8c88df);
+    padding:40px;
+}
+
+.wrapper{
+    width:1100px;
+    display:flex;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+}
+
+aside{
+    width:50%;
+    padding:50px;
+}
+
+/* Left Panel */
+
+aside:first-child{
+    background: #085078;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #85D8CE, #085078);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #85D8CE, #085078); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+aside:first-child h1{
+    color:#3d66b1;
+}
+
+/* Right Panel */
+
+aside:last-child{
+    background: #232526;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color:white;
+}
+
+aside:last-child h1{
+    color:white;
+}
+
+/* Heading */
+
+h1{
+    margin-bottom:40px;
+    font-size:34px;
+    font-weight:600;
+}
+
+/* Labels */
+
+label{
+    display:block;
+    margin-top:20px;
+    margin-bottom:6px;
+    font-size:15px;
+}
+
+/* Inputs */
+
+input[type=text],
+input[type=number],
+textarea,
+select{
+
+    width:100%;
+    border:none;
+    border-bottom:2px solid rgba(0,0,0,.15);
+    background:transparent;
+
+    padding:12px 2px;
+
+    font-size:15px;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+aside:last-child input[type=text],
+aside:last-child input[type=number],
+aside:last-child textarea,
+aside:last-child select{
+
+    color:white;
+    border-bottom:2px solid rgba(255,255,255,.35);
+
+}
+
+textarea{
+
+    resize:none;
+    height:100px;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    border-color:#4b7bec;
+
+}
+
+aside:last-child input:focus,
+aside:last-child textarea:focus,
+aside:last-child select:focus{
+
+    border-color:white;
+
+}
+
+/* Select */
+
+select{
+
+    cursor:pointer;
+}
+select option{
+    background-color: greenyellow;
+    color: #4b7bec;
+}
+
+/* Radio */
+
+.radio{
+
+    margin-top:15px;
+
+}
+
+.radio label{
+
+    display:inline-block;
+
+    margin-right:30px;
+
+    cursor:pointer;
+
+}
+
+/* Buttons */
+
+.buttons{
+
+    margin-top:35px;
+
+}
+
+button{
+
+    border:none;
+
+    padding:13px 38px;
+
+    border-radius:35px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:translateY(-3px);
+
+}
+
+button[name=submit],
+button[name=Psubmit]{
+
+    background:white;
+
+    color:#4b33d4;
+
+}
+
+button[type=reset]{
+
+    background:#e9e9e9;
+
+    margin-left:15px;
+
+}
+
+/* Error */
+
+span{
+
+    color:#ff5d5d;
+
+    font-size:13px;
+
+}
+
+/* Result Box */
+
+.result{
+
+    margin-top:35px;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.15);
+
+    line-height:1.8;
+
+}
+
+aside:first-child .result{
+
+    background:#f5f7ff;
+
+}
+
+/* File */
+
+input[type=file]{
+
+    margin-top:10px;
+
+}
+
+/* Responsive */
+
+@media(max-width:1000px){
+
+.wrapper{
+
+    flex-direction:column;
+
+    width:100%;
+
+}
+
+aside{
+
+    width:100%;
+
+}
+
+}
